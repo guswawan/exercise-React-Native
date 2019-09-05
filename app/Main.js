@@ -1,8 +1,14 @@
-import React, { Component } from 'react';
-import { StyleSheet, View, StatusBar, ActivityIndicator, ScrollView, AsyncStorage } from 'react-native';
+import React from 'react';
+import { 
+    StyleSheet,
+    View,
+    StatusBar,
+    ActivityIndicator,
+    ScrollView,
+    AsyncStorage
+} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import uuid from 'uuid/v1';
-
 
 import { primaryGradientArray } from './utils/Colors';
 import Header from './components/Header';
@@ -11,9 +17,9 @@ import Input from './components/Input';
 import List from './components/List';
 import Button from './components/Button';
 
-const headerTitle = 'My Mission';
+const headerTitle = 'My Missions';
 
-export default class Main extends Component {
+export default class Main extends React.Component {
     state = {
         inputValue: '',
         loadingItems: false,
@@ -100,9 +106,27 @@ export default class Main extends Component {
         });
     };
 
+    incompleteItem = id => {
+        this.setState(prevState => {
+            const newState = {
+                ...prevState,
+                allItems: {
+                    ...prevState.allItems,
+                    [id]: {
+                        ...prevState.allItems[id],
+                        isCompleted: false
+                    }
+                }
+            };
+            this.saveItems(newState.allItems);
+            return { ...newState };
+        });
+    };
+
     deleteAllItems = async () => {
         try {
             await AsyncStorage.removeItem('My Missions');
+            this.setState({ allItems: {} });
         } catch (err) {
             console.log(err);
         }
@@ -114,6 +138,7 @@ export default class Main extends Component {
 
     render() {
         const { inputValue, loadingItems, allItems } = this.state;
+
         return (
             <LinearGradient colors={primaryGradientArray} style={styles.container}>
                 <StatusBar barStyle="light-content" />
@@ -130,14 +155,14 @@ export default class Main extends Component {
                 </View>
                 <View style={styles.list}>
                     <View style={styles.column}>
-                        <SubTitle subtitle={'Recent Notes'} />
-                        <View style={StyleSheet.deleteAllButton}>
+                        <SubTitle subtitle={"Missions list"} />
+                        <View style={styles.deleteAllButton}>
                             <Button deleteAllItems={this.deleteAllItems} />
                         </View>
                     </View>
 
                 {loadingItems ? (
-                    <ScrollView contentContainerStyle={StyleSheet.scrollableList}>
+                    <ScrollView contentContainerStyle={styles.scrollableList}>
                         {Object.values(allItems)
                             .reverse()
                             .map(item => (
@@ -186,6 +211,6 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
     deleteAllButton: {
-        marginRight: 40
+        marginRight: 30
     }
 });

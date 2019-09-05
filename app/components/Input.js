@@ -15,7 +15,7 @@ const Input = ({ inputValue, onChangeText, onDoneAddItem }) => (
             autoCapitalize="sentences"
             underlineColorAndroid="transparent"
             selectionColor={'white'}
-            maxLength={30}
+            maxLength={33}
             returnKeyType="done"
             autoCorrect={false}
             blurOnSubmit={true}

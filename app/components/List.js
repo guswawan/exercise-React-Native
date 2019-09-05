@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
 	View,
 	Text,
@@ -19,9 +19,10 @@ import {
 
 const { width } = Dimensions.get('window');
 
-class List extends Component {
+class List extends React.Component {
 	onToggleCircle = () => {
-		const { isCompleted, id, completeItem, incompleteItem } = this.props;
+		const { isCompleted, id } = this.props;
+		const { completeItem, incompleteItem } = this.props;
 		if (isCompleted) {
 			incompleteItem(id);
 		} else {
