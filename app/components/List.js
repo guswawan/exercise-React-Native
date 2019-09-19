@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
 	View,
 	Text,
@@ -17,12 +17,12 @@ import {
 	deleteIconColor
 } from '../utils/Colors';
 
-const { width } = Dimensions.get('window');
+const { height, width } = Dimensions.get('window');
 
 class List extends React.Component {
 	onToggleCircle = () => {
-		const { isCompleted, id } = this.props;
-		const { completeItem, incompleteItem } = this.props;
+		const { isCompleted, id, completeItem, incompleteItem } = this.props;
+		
 		if (isCompleted) {
 			incompleteItem(id);
 		} else {
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
 		width: width - 50,
 		flexDirection: 'row',
 		borderRadius: 5,
-		backgroundColor: 'white',
+		backgroundColor: '#000000',
 		height: width / 8,
 		alignItems: 'center',
 		justifyContent: 'space-between',

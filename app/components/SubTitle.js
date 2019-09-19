@@ -4,13 +4,13 @@ import { StyleSheet, Text } from 'react-native';
 import { linghterWhite } from '../utils/Colors';
 
 const SubTitle = ({ subtitle }) => (
-    <Text style={[styles.titleText, { color: linghterWhite }]}>
+    <Text style={[styles.subtitleText, { color: linghterWhite }]}>
         {subtitle.toUpperCase()}
     </Text>
 );
 
 const styles = StyleSheet.create({
-    titleText: {
+    subtitleText: {
         fontSize: 16,
         fontWeight: '500'
     }

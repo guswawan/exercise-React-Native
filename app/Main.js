@@ -89,7 +89,7 @@ export default class Main extends React.Component {
         });
     };
 
-    completedItem = id => {
+    completeItem = id => {
         this.setState(prevState => {
             const newState = {
                 ...prevState,
@@ -146,7 +146,7 @@ export default class Main extends React.Component {
                     <Header title={headerTitle} />
                 </View>
                 <View style={styles.inputContainer}>
-                    <SubTitle subtitle={"What's Next, bro?"} />
+                    <SubTitle subtitle={"What's Next, bro?"}/>
                     <Input
                             inputValue={inputValue}
                             onChangeText={this.newInputValue}
@@ -194,7 +194,8 @@ const styles = StyleSheet.create({
     },
     inputContainer: {
         marginTop: 40,
-        paddingLeft: 15
+        paddingLeft: 15,
+        color: '#ffffff'
     },
     list: {
         flex: 1,

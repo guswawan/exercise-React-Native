@@ -11,9 +11,9 @@ const styles = StyleSheet.create({
         marginTop: 40
     },
     headerText: {
-        color: 'white',
-        fontSize: 22,
-        fontWeight: '500'
+        color: '#000000',
+        fontSize: 24,
+        fontWeight: '600'
     }
 });
 export default Header;
