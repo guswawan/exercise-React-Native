@@ -1,5 +1,15 @@
 # exercise-React-Native
-learn to make an Android / IOS application to record a list of activities / notes using react native + expo
+Android / IOS application to record a list of activities / missions using react native + expo
 
-# Run
+### Expo
+```
+//expo-cli 3.0.10
+npm install -g expo-cli
+``` 
+
+### Run Project
+```
 expo start -c
+````
+
+Customization tutorial at [Pusher](https://pusher.com).
