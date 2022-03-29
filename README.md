@@ -1,5 +1,5 @@
 # exercise-React-Native
-Android or IOS application to record a list of activities and missions using react native + expo
+Application to record a list of activities and missions using react native + expo
 
 ### Expo
 ```
