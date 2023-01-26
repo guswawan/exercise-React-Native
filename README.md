@@ -3,7 +3,7 @@ Application to record a list of activities and missions using react native + exp
 
 ### Expo
 
-//expo-cli 3.0.10
+version: expo-cli 3.0.10
 ```
 npm install -g expo-cli
 ``` 
